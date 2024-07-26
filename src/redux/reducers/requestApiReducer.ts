@@ -1,4 +1,4 @@
-// src/reducers/requestApiReducer.ts
+/* eslint-disable sonarjs/no-duplicated-branches */
 import { REQUEST_CATEGORY, REQUEST_CATEGORY_SUCCESS,
   REQUEST_CATEGORY_FAILURE } from '../actions/requestApiAction';
 import { REQUEST_ITEMS, REQUEST_ITEMS_SUCCESS,

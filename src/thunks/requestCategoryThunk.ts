@@ -1,4 +1,3 @@
-// src/thunks/requestCategoryThunk.ts
 import { Dispatch } from 'redux';
 import { requestCategory, requestCategorySuccess,
   requestCategoryFailure } from '../redux/actions/requestApiAction';
