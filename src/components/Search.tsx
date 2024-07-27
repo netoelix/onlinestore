@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setSearchItem } from '../redux/actions/saveCategoryAction';
+import { StyledSearch } from '../styles/StyledSearch';
 
 function Search() {
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
@@ -13,10 +16,11 @@ function Search() {
   const handleSearchClick = () => {
     const formattedValue = inputValue.replace(/\s/g, '%20');
     dispatch(setSearchItem(formattedValue));
+    navigate(`/${formattedValue}`);
   };
 
   return (
-    <div>
+    <StyledSearch>
       <input
         type="text"
         placeholder="Search..."
@@ -24,7 +28,7 @@ function Search() {
         onChange={ handleInputChange }
       />
       <button onClick={ handleSearchClick }>Pesquisar</button>
-    </div>
+    </StyledSearch>
   );
 }
 

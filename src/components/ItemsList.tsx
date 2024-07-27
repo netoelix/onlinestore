@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 import { fetchItemsByCategory, fetchItemsBySearch } from '../thunks/requestItemsThunk';
 
 function ItemList() {
-  const dispatch = useDispatch();
+  const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch();
   const selectedCategoryId = useSelector((state: any) => state
     .categoryReducer.selectedCategoryId);
   const searchItem = useSelector((state: any) => state
@@ -25,7 +27,7 @@ function ItemList() {
         <div>Loading...</div>
       ) : (
         <div>
-          {items.map((item) => (
+          {items.map((item: any) => (
             <div key={ item.id }>
               <h3>{item.title}</h3>
               <img src={ item.thumbnail } alt={ item.title } />
