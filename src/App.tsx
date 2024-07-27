@@ -1,16 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
 import Layout from './components/Layout';
 import ItemList from './components/ItemsList';
+import GlobalStyle from './styles/GlobalStyle';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <Routes>
-      <Route element={ <Layout /> }>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/:category" element={ <ItemList /> } />
-      </Route>
-    </Routes>
+    <>
+      <GlobalStyle />
+      <Routes>
+        <Route element={ <Layout /> }>
+          <Route path="/" element={ <Home /> } />
+          <Route path="/:category" element={ <ItemList /> } />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

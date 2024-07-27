@@ -1,8 +1,12 @@
 function Category({ categories, onCategoryClick }: any) {
   return (
-    <div>
+    <div className="categories">
       {categories.map((category: any) => (
-        <button key={ category.id } onClick={ () => onCategoryClick(category.id) }>
+        <button
+          key={ category.id }
+          onClick={ () => onCategoryClick(category.id) }
+          className="category-button"
+        >
           <p>
             {category.name}
           </p>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHome = styled.main`
+export const StyledHome = styled.section`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

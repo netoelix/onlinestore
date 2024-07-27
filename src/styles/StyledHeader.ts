@@ -18,7 +18,7 @@ export const StyledHeader = styled.header`
         margin: 0;
     }
 
-    button {
+    .button-home {
         background-color: #fff;
         color: #0079bf;
         border: none;

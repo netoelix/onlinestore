@@ -23,7 +23,7 @@ function Search() {
     <StyledSearch>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Buscar produtos..."
         value={ inputValue }
         onChange={ handleInputChange }
       />

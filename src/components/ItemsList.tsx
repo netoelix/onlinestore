@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { fetchItemsByCategory, fetchItemsBySearch } from '../thunks/requestItemsThunk';
+import { StyledItems } from '../styles/StyledItems';
 
 function ItemList() {
   const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch();
@@ -26,22 +27,23 @@ function ItemList() {
       {!items ? (
         <div>Loading...</div>
       ) : (
-        <div>
+        <StyledItems>
           {items.map((item: any) => (
             <div key={ item.id }>
               <h3>{item.title}</h3>
               <img src={ item.thumbnail } alt={ item.title } />
-              <h4>{item.price}</h4>
-              <a
-                href={ item.permalink }
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
+              <span>
+                <h4>
+                  R$
+                  {item.price}
+                </h4>
+              </span>
+              <button>
+                Adicionar ao carrinho
+              </button>
             </div>
           ))}
-        </div>
+        </StyledItems>
       )}
     </div>
   );
