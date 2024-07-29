@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Search from './Search';
+import { StyledHeader } from '../styles/StyledHeader';
 
 function Header() {
   const navigate = useNavigate();
@@ -8,20 +9,20 @@ function Header() {
   };
 
   return (
-    <header>
-      <div>
-        <h1>Online Store</h1>
-      </div>
+    <StyledHeader>
       <div>
         <button
           onClick={ handleButtonClick }
           className="button-home"
         >
-          Pagina Inicial
+          <h1>Online Store</h1>
         </button>
       </div>
       <Search />
-    </header>
+      <div>
+        <p>Cep:</p>
+      </div>
+    </StyledHeader>
   );
 }
 
