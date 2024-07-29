@@ -4,7 +4,6 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
   background-color: #212529;
   color: white;
 
@@ -23,5 +22,12 @@ export const StyledHeader = styled.header`
     &:hover {
       background-color: #495057;
     }
+  }
+
+  .title {
+    width: 20%;
+  }
+  .zip-code {
+    width: 20%;
   }
 `;

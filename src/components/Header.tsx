@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <StyledHeader>
-      <div>
+      <div className="title">
         <button
           onClick={ handleButtonClick }
           className="button-home"
@@ -19,7 +19,7 @@ function Header() {
         </button>
       </div>
       <Search />
-      <div>
+      <div className="zip-code">
         <p>Cep:</p>
       </div>
     </StyledHeader>

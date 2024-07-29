@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setSearchItem } from '../redux/actions/saveCategoryAction';
+import { StyledSearch } from '../styles/StyledSearch';
 
 function Search() {
   const [inputValue, setInputValue] = useState('');
@@ -19,7 +20,7 @@ function Search() {
   };
 
   return (
-    <div>
+    <StyledSearch>
       <input
         type="text"
         placeholder="Buscar produtos..."
@@ -27,7 +28,7 @@ function Search() {
         onChange={ handleInputChange }
       />
       <button onClick={ handleSearchClick }>Pesquisar</button>
-    </div>
+    </StyledSearch>
   );
 }
 
