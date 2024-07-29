@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import ItemList from './components/ItemsList';
 import GlobalStyle from './styles/GlobalStyle';
 import Home from './pages/InitialPage';
+import ProducInfo from './components/ProductInfo';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route element={ <Layout /> }>
           <Route path="/" element={ <Home /> } />
           <Route path="/:category" element={ <ItemList /> } />
+          <Route path="/produto/:id" element={ <ProducInfo /> } />
         </Route>
       </Routes>
     </>

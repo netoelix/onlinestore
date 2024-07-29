@@ -15,6 +15,7 @@ export const StyledSearch = styled.section`
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
       background-color: #495057;
+      color: white;
       &::placeholder {
       color: white;
     }

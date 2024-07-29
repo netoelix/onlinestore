@@ -13,15 +13,15 @@ const GlobalStyle = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #ADB5BD;
     }
 
     ::-webkit-scrollbar-thumb {
-    background: #0079bf;
+    background: #495057;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-    background: #005f8d;
+    background: #212529;
     }
 `;
 

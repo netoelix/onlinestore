@@ -1,8 +1,10 @@
+import { StyledFooter } from '../styles/StyledFooter';
+
 function Footer() {
   return (
-    <footer>
-      <p>&copy; 2024</p>
-    </footer>
+    <StyledFooter>
+      <p>Elix Merlino Neto &copy; 2024</p>
+    </StyledFooter>
   );
 }
 

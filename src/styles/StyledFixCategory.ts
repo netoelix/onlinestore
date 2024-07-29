@@ -16,7 +16,7 @@ export const FixCategoryContainer = styled.section`
       align-items: flex-start;
       overflow-y: auto;
       width: 98%;
-      height: 640px;
+      height: 610px;
     }
     
     .category-button {
