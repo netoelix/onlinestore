@@ -1,9 +1,35 @@
 import styled from 'styled-components';
 
-export const StyledInitialPage = styled.main`
+export const StyledInitialPage = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .categories {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
-    background-color: #f5f5f5;
-    `;
+    gap: 1rem;
+
+    button {
+        padding: 1rem;
+        background-color: #ADB5BD;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 44%;
+        height: 300px;
+        margin: 2rem;
+    
+        p {
+            font-size: 2rem;
+            color: #333;
+            font-weight: bold;
+        }
+    
+        &:hover {
+            background-color: #6C757D;
+        }
+    }
+  }
+`;

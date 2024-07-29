@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setCategoryId } from '../redux/actions/saveCategoryAction';
 import Category from '../components/CategoryList';
-import { StyledHome } from '../styles/StyledHome';
+import { StyledInitialPage } from '../styles/StyledInitialPage';
 
 const categories = [
   { id: 'MLB1051', name: 'Celulares e Telefones' },
@@ -22,9 +22,9 @@ function Home() {
   };
 
   return (
-    <StyledHome>
+    <StyledInitialPage>
       <Category categories={ categories } onCategoryClick={ handleCategoryClick } />
-    </StyledHome>
+    </StyledInitialPage>
   );
 }
 

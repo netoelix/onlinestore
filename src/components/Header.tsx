@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import Search from './Search';
-import { StyledHeader } from '../styles/StyledHeader';
 
 function Header() {
   const navigate = useNavigate();
@@ -9,7 +8,7 @@ function Header() {
   };
 
   return (
-    <StyledHeader>
+    <header>
       <div>
         <h1>Online Store</h1>
       </div>
@@ -22,7 +21,7 @@ function Header() {
         </button>
       </div>
       <Search />
-    </StyledHeader>
+    </header>
   );
 }
 

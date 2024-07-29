@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import ItemList from './components/ItemsList';
 import GlobalStyle from './styles/GlobalStyle';
-import Home from './pages/Home';
+import Home from './pages/InitialPage';
 
 function App() {
   return (

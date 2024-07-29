@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { fetchItemsByCategory, fetchItemsBySearch } from '../thunks/requestItemsThunk';
-import { StyledItems } from '../styles/StyledItems';
 
 function ItemList() {
   const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch();
@@ -27,7 +26,7 @@ function ItemList() {
       {!items ? (
         <div>Loading...</div>
       ) : (
-        <StyledItems>
+        <section>
           {items.map((item: any) => (
             <div key={ item.id }>
               <h3>{item.title}</h3>
@@ -43,7 +42,7 @@ function ItemList() {
               </button>
             </div>
           ))}
-        </StyledItems>
+        </section>
       )}
     </div>
   );
