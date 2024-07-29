@@ -1,0 +1,131 @@
+import styled from 'styled-components';
+
+export const StyledProductInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    margin-top: 100px;
+    padding: 20px;
+
+    section {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin: 2rem 0;
+    }
+
+    .pictures {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        width: 200px;
+        height: 500px;
+        overflow-y: scroll;
+
+        .picture-button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        img {
+            padding: 5px;
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .products {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .product-img {
+            width: 400px;
+            height: 450px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-top: 3rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .buy-now {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #495057;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 50%;
+        }
+        .add-to-cart {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #6C757D;
+            color: #fff;
+            border: 1px solid #000;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 50%;
+        }
+        .share-button {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #6C757D;
+            color: #fff;
+            border: 1px solid #000;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            width: 15%;
+        }
+    }
+
+    .product-details {
+        display: flex;
+        flex-direction: column;
+        margin-top: 100px;
+        gap: 1rem;
+        width: 50%;
+        background-color: #f8f9fa;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+
+        div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.5rem;
+            border-bottom: 1px solid #000;
+            text-align: justify;
+        }
+
+        h2 {
+            font-size: 1rem;
+        }
+        p {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    }
+`;
