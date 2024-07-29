@@ -4,6 +4,7 @@ export const StyledInitialPage = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 
   .categories {
     display: flex;

@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { setCategoryId } from '../redux/actions/saveCategoryAction';
 import Category from './CategoryList';
 import { fetchCategories } from '../thunks/requestCategoryThunk';
+import { FixCategoryContainer } from '../styles/StyledFixCategory';
 
 function FixCategory() {
   const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch();
@@ -20,6 +21,7 @@ function FixCategory() {
     dispatch(setCategoryId(categoryId));
     navigate(`/${categoryId}`);
   };
+
   if (error) {
     return (
       <p>
@@ -29,9 +31,12 @@ function FixCategory() {
     );
   }
   return (
-    <div>
-      <Category categories={ categories } onCategoryClick={ handleCategoryClick } />
-    </div>
+    <FixCategoryContainer>
+      <Category
+        categories={ categories }
+        onCategoryClick={ handleCategoryClick }
+      />
+    </FixCategoryContainer>
   );
 }
 
