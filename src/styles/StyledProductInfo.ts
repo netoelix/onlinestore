@@ -31,9 +31,25 @@ export const StyledProductInfo = styled.div`
         }
 
         img {
-            padding: 5px;
             width: 100px;
             height: 100px;
+            border: 1px solid #000;
+            border-radius: 5px;
+        }
+    }
+
+    .product-info {
+        p {
+            font-size: 1rem;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+        input {
+            width: 50px;
+            margin-left: 5px;
+            border: none;
+            border-bottom: 1px solid #000;
+            text-align: center;
         }
     }
 
@@ -43,8 +59,8 @@ export const StyledProductInfo = styled.div`
         gap: 1rem;
 
         .product-img {
-            width: 400px;
-            height: 450px;
+            max-width: 800px;
+            max-height: 600px;
         }
 
         div {
@@ -85,17 +101,23 @@ export const StyledProductInfo = styled.div`
             font-weight: bold;
             width: 50%;
         }
-        .share-button {
-            margin-top: 2rem;
-            padding: 1rem;
-            background-color: #6C757D;
-            color: #fff;
-            border: 1px solid #000;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            width: 15%;
+        .share-options {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 30px;
+
+            button {
+                width: 50px;
+            }
+            svg {
+                margin-top: 2rem;
+                stroke: black;
+                cursor: pointer;
+                font-size: 50px;
+                font-weight: bold;
+            }
         }
     }
 
@@ -105,10 +127,8 @@ export const StyledProductInfo = styled.div`
         margin-top: 100px;
         gap: 1rem;
         width: 50%;
-        background-color: #f8f9fa;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         padding: 1rem;
-
+        
         div {
             display: flex;
             flex-direction: row;
@@ -119,13 +139,20 @@ export const StyledProductInfo = styled.div`
             border-bottom: 1px solid #000;
             text-align: justify;
         }
-
-        h2 {
-            font-size: 1rem;
-        }
-        p {
-            font-size: 1rem;
+        
+        td {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem;
             font-weight: bold;
+            border-bottom: 1px solid white;
+        }
+
+        .name {
+            background-color: #ADB5BD;
+        }
+
+        .value {
+            background-color: #CED4DA;
         }
     }
 `;

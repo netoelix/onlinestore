@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FixCategoryContainer = styled.section`
-    width: 100%;
+    width: 20%;
     padding: 5px;
     display: flex;
     flex-direction: column;

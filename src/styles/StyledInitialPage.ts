@@ -22,6 +22,14 @@ export const StyledInitialPage = styled.section`
         width: 44%;
         height: 300px;
         margin: 2rem;
+        -webkit-box-shadow: 0px 10px 30px 0px rgba(0,0,0,0.52);
+        -moz-box-shadow: 0px 10px 30px 0px rgba(0,0,0,0.52);
+        box-shadow: 0px 10px 30px 0px rgba(0,0,0,0.52);
+
+        svg {
+            font-size: 3rem;
+            color: #333;
+        }
     
         p {
             font-size: 2rem;

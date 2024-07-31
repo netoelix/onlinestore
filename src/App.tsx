@@ -4,6 +4,7 @@ import ItemList from './components/ItemsList';
 import GlobalStyle from './styles/GlobalStyle';
 import Home from './pages/InitialPage';
 import ProducInfo from './components/ProductInfo';
+import Cart from './pages/cart';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Route path="/" element={ <Home /> } />
           <Route path="/:category" element={ <ItemList /> } />
           <Route path="/produto/:id" element={ <ProducInfo /> } />
+          <Route path="/cart" element={ <Cart /> } />
+          <Route path="*" element={ <h1>Not Found</h1> } />
         </Route>
       </Routes>
     </>

@@ -110,7 +110,7 @@ function ItemList() {
                   className="title-product"
                   onClick={ () => handleProductClick(item.id) }
                 >
-                  <h1>{truncateTitle(item.title, 60)}</h1>
+                  <h1>{truncateTitle(item.title, 50)}</h1>
                 </button>
                 <span>
                   <h4>

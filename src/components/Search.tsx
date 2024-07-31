@@ -19,6 +19,12 @@ function Search() {
     navigate(`/${formattedValue}`);
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSearchClick();
+    }
+  };
+
   return (
     <StyledSearch>
       <input
@@ -26,6 +32,7 @@ function Search() {
         placeholder="Buscar produtos..."
         value={ inputValue }
         onChange={ handleInputChange }
+        onKeyDown={ handleKeyDown }
       />
       <button onClick={ handleSearchClick }>Pesquisar</button>
     </StyledSearch>

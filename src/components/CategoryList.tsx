@@ -7,9 +7,8 @@ function Category({ categories, onCategoryClick }: any) {
           onClick={ () => onCategoryClick(category.id) }
           className="category-button"
         >
-          <p>
-            {category.name}
-          </p>
+          {category.icon && <span>{category.icon}</span>}
+          <p>{category.name}</p>
         </button>
       ))}
     </div>

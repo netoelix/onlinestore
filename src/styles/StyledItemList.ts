@@ -7,6 +7,7 @@ export const StyledItemsContainer = styled.div`
     align-items: flex-start;
     gap: 1rem;
     margin-top: 100px;
+    margin-bottom: 50px;
 `;
 
 export const StyledFilterList = styled.div`
@@ -33,7 +34,7 @@ export const StyledFilterList = styled.div`
             border: none;
             border-radius: 5px;
             padding: 0.5rem 1rem;
-            font-size: 1rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: 0.3s;
             &:hover {

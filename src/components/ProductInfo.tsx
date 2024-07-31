@@ -1,14 +1,22 @@
+/* eslint-disable react/jsx-max-depth */
 /* eslint-disable no-alert */
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import { FacebookShareButton, TwitterShareButton,
+  WhatsappShareButton } from 'react-share';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { TiSocialFacebookCircular } from 'react-icons/ti';
+import { FaRegCopy, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import { fetchItemById } from '../thunks/requestItemsThunk';
 import { StyledProductInfo } from '../styles/StyledProductInfo';
 
 function ProductInfo() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [installments, setInstallments] = useState(1);
+
   const { id: itemId } = useParams<{ id: string }>();
   const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch();
   const item = useSelector((state: any) => state.itemReducer.item);
@@ -25,21 +33,30 @@ function ProductInfo() {
     return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
 
-  const handleShare = () => {
-    if (item?.permalink) {
-      navigator.clipboard.writeText(item.permalink)
-        .then(() => {
-          alert('Link copiado para a área de transferência!');
-        })
-        .catch((err) => {
-          console.error('Erro ao copiar o link: ', err);
-        });
-    }
+  const handleCopyLink = () => {
+    alert('Link copiado para a área de transferência!');
   };
 
-  if (loading) {
+  const handleInstallmentsChange = (event: any) => {
+    setInstallments(Number(event.target.value));
+  };
+
+  const getInstallmentCondition = (price: any) => {
+    if (price < 100) {
+      return '3';
+    } if (price >= 100 && price <= 600) {
+      return '6';
+    }
+    return '10';
+  };
+
+  if (loading || !item) {
     return <div>Loading...</div>;
   }
+
+  const maxInstallments = getInstallmentCondition(item.price);
+
+  const installmentValue = item.price / installments;
 
   if (error) {
     return <div>{error}</div>;
@@ -75,9 +92,25 @@ function ProductInfo() {
               alt={ item.title }
               className="product-img"
             />
-            <div>
+            <div className="product-info">
               <h1>{item.title}</h1>
               <h2>{formatPrice(item.price)}</h2>
+              <p>
+                Você pode parcelar em até
+                {' '}
+                {maxInstallments}
+                x sem juros
+                <br />
+                Em
+                <input
+                  type="number"
+                  min="1"
+                  max={ maxInstallments }
+                  value={ installments }
+                  onChange={ handleInstallmentsChange }
+                />
+                {` de ${formatPrice(installmentValue)} por mês`}
+              </p>
               <div className="buttons">
                 <button className="buy-now">
                   COMPRAR AGORA
@@ -86,23 +119,48 @@ function ProductInfo() {
                   ADICIONAR AO CARRINHO
                 </button>
               </div>
-              <button className="share-button" onClick={ handleShare }>
-                Compartilhar
-              </button>
+              <div className="share-options">
+                <FacebookShareButton
+                  url={ window.location.href }
+                  className="facebook"
+                >
+                  <TiSocialFacebookCircular />
+                </FacebookShareButton>
+                <TwitterShareButton
+                  url={ window.location.href }
+                  className="twitter"
+                >
+                  <FaXTwitter />
+                </TwitterShareButton>
+                <WhatsappShareButton
+                  url={ window.location.href }
+                  className="whatsapp"
+                >
+                  <FaWhatsapp />
+                </WhatsappShareButton>
+                <CopyToClipboard
+                  text={ window.location.href }
+                  onCopy={ handleCopyLink }
+                >
+                  <FaRegCopy />
+                </CopyToClipboard>
+              </div>
             </div>
           </div>
           <div className="product-details">
-            {item.attributes.map((attribute: any) => (
-              <div key={ attribute.id }>
-                <h2>
-                  {attribute.name}
-                  :
-                </h2>
-                {attribute.values.map((value: any) => (
-                  <p key={ value.id }>{value.name}</p>
+            <h1>Detalhes técnicos</h1>
+            <table>
+              <tbody>
+                {item.attributes.map((attribute: any, attrIndex: number) => (
+                  attribute.values.map((value: any, valueIndex: number) => (
+                    <tr key={ `${attrIndex}-${valueIndex}` }>
+                      <td className="name">{attribute.name}</td>
+                      <td className="value">{value.name}</td>
+                    </tr>
+                  ))
                 ))}
-              </div>
-            ))}
+              </tbody>
+            </table>
           </div>
         </section>
       )}
