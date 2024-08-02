@@ -5,6 +5,7 @@ import GlobalStyle from './styles/GlobalStyle';
 import Home from './pages/InitialPage';
 import ProducInfo from './components/ProductInfo';
 import Cart from './pages/cart';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/:category" element={ <ItemList /> } />
           <Route path="/produto/:id" element={ <ProducInfo /> } />
           <Route path="/cart" element={ <Cart /> } />
+          <Route path="/checkout" element={ <Checkout /> } />
           <Route path="*" element={ <h1>Not Found</h1> } />
         </Route>
       </Routes>

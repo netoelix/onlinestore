@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable no-alert */
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -23,6 +23,7 @@ function ProductInfo() {
   const item = useSelector((state: any) => state.itemReducer.item);
   const loading = useSelector((state: any) => state.itemReducer.loading);
   const error = useSelector((state: any) => state.itemReducer.error);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (itemId) {
@@ -46,18 +47,21 @@ function ProductInfo() {
     dispatch(addToCart(id));
   };
 
-  const getInstallmentCondition = (price: any) => {
-    if (price < 100) {
-      return '3';
-    } if (price >= 100 && price <= 600) {
-      return '6';
-    }
-    return '10';
+  const getInstallmentCondition = (total: number) => {
+    return Math.min(12, Math.floor(total / 100));
   };
 
   if (loading || !item) {
     return <div>Loading...</div>;
   }
+  const handleButtonNavigate = () => {
+    navigate('/cart');
+  };
+
+  const handleBuyNowClick = (itemId) => {
+    handleAddToCart(itemId);
+    handleButtonNavigate();
+  };
 
   const maxInstallments = getInstallmentCondition(item.price);
 
@@ -117,7 +121,10 @@ function ProductInfo() {
                 {` de ${formatPrice(installmentValue)} por mês`}
               </p>
               <div className="buttons">
-                <button className="buy-now">
+                <button
+                  className="buy-now"
+                  onClick={ () => handleBuyNowClick(item.id) }
+                >
                   COMPRAR AGORA
                 </button>
                 <button

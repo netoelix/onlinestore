@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import { useNavigate } from 'react-router-dom';
 import { fetchItemById } from '../thunks/requestItemsThunk';
 import { StyledCart } from '../styles/StyledCart';
 import { removeFromCart } from '../redux/actions/cartActions';
@@ -10,6 +11,7 @@ function Cart() {
   const dispatch: ThunkDispatch<any, any, AnyAction> = useDispatch();
   const itemIds = useSelector((state: any) => state.cartReducer.itemIds);
   const items = useSelector((state: any) => state.cartItemsReducer.items);
+  const navigate = useNavigate();
 
   useEffect(() => {
     itemIds.forEach((id: any) => {
@@ -27,13 +29,12 @@ function Cart() {
     dispatch(removeFromCart(id));
   };
 
-  const getInstallmentCondition = (price: any) => {
-    if (price < 100) {
-      return '3';
-    } if (price >= 100 && price <= 600) {
-      return '6';
-    }
-    return '10';
+  const getInstallmentCondition = (total: number) => {
+    return Math.min(12, Math.floor(total / 100));
+  };
+
+  const handleCheckout = () => {
+    navigate('/checkout');
   };
 
   const totalPrice = itemIds.reduce((total: any, id: string | number) => {
@@ -78,7 +79,7 @@ function Cart() {
                 x sem juros
               </p>
             </div>
-            <button>Finalizar Compra</button>
+            <button onClick={ handleCheckout }>Finalizar Compra</button>
           </>
         )}
       </div>
