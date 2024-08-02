@@ -12,6 +12,7 @@ import { TiSocialFacebookCircular } from 'react-icons/ti';
 import { FaRegCopy, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import { fetchItemById } from '../thunks/requestItemsThunk';
 import { StyledProductInfo } from '../styles/StyledProductInfo';
+import { addToCart } from '../redux/reducers/cartReducer';
 
 function ProductInfo() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -39,6 +40,10 @@ function ProductInfo() {
 
   const handleInstallmentsChange = (event: any) => {
     setInstallments(Number(event.target.value));
+  };
+
+  const handleAddToCart = (id: any) => {
+    dispatch(addToCart(id));
   };
 
   const getInstallmentCondition = (price: any) => {
@@ -115,7 +120,10 @@ function ProductInfo() {
                 <button className="buy-now">
                   COMPRAR AGORA
                 </button>
-                <button className="add-to-cart">
+                <button
+                  className="add-to-cart"
+                  onClick={ () => handleAddToCart(item.id) }
+                >
                   ADICIONAR AO CARRINHO
                 </button>
               </div>

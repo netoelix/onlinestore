@@ -8,6 +8,7 @@ import { fetchItemsByCategory, fetchItemsBySearch } from '../thunks/requestItems
 import { StyledFilterList, StyledItemList,
   StyledItemsContainer } from '../styles/StyledItemList';
 import { setCategoryId } from '../redux/actions/saveCategoryAction';
+import { addToCart } from '../redux/reducers/cartReducer.ts';
 
 function ItemList() {
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
@@ -38,6 +39,10 @@ function ItemList() {
       return `${title.substring(0, maxLength)}...`;
     }
     return title;
+  };
+
+  const handleAddToCart = (id: any) => {
+    dispatch(addToCart(id));
   };
 
   const handleCategoryClick = (categoryId: string) => {
@@ -117,7 +122,10 @@ function ItemList() {
                     {formatPrice(item.price)}
                   </h4>
                 </span>
-                <button className="add-to-cart">
+                <button
+                  className="add-to-cart"
+                  onClick={ () => handleAddToCart(item.id) }
+                >
                   Adicionar ao carrinho
                 </button>
               </div>
