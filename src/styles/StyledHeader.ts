@@ -125,6 +125,14 @@ export const StyledHeader = styled.header`
       color: white;
       font-size: 1.5rem;
       margin-right: 1rem;
+
+      span {
+        background-color: #495057;
+        color: white;
+        border-radius: 50%;
+        padding: 0.1rem 0.4rem;
+        font-size: 0.9rem;
+      }
   }
 
   .under-header {

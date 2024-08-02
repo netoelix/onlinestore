@@ -27,6 +27,15 @@ function Cart() {
     dispatch(removeFromCart(id));
   };
 
+  const getInstallmentCondition = (price: any) => {
+    if (price < 100) {
+      return '3';
+    } if (price >= 100 && price <= 600) {
+      return '6';
+    }
+    return '10';
+  };
+
   const totalPrice = itemIds.reduce((total: any, id: string | number) => {
     return total + (items[id]?.price || 0);
   }, 0);
@@ -53,11 +62,25 @@ function Cart() {
         </div>
       ))}
       <div className="total-container">
-        <h2>
-          Total:
-          {formatPrice(totalPrice)}
-        </h2>
-        <button>Finalizar Compra</button>
+        {totalPrice === 0 ? (
+          <h2>Carrinho vazio</h2>
+        ) : (
+          <>
+            <div>
+              <h2>
+                Total:
+                {formatPrice(totalPrice)}
+              </h2>
+              <p>
+                Você pode parcelar em até
+                {' '}
+                {getInstallmentCondition(totalPrice)}
+                x sem juros
+              </p>
+            </div>
+            <button>Finalizar Compra</button>
+          </>
+        )}
       </div>
     </StyledCart>
   );

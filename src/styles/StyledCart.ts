@@ -61,6 +61,11 @@ export const StyledCart = styled.div`
     h2 {
         margin: 0;
     }
+    p {
+        font-size: 14px;
+        color: #666;
+        font-weight: bold;
+    }
     button {
         background-color: #000;
         color: #fff;

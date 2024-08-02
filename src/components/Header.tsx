@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import { FiShoppingCart } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
 import Search from './Search';
 import { StyledHeader } from '../styles/StyledHeader';
 import FixCategory from './FixCategory';
@@ -14,6 +15,9 @@ function Header() {
   const [cep, setCep] = useState('');
   const [cepData, setCepData] = useState<null | { cep: string,
     logradouro: string, bairro: string, localidade: string, uf: string }>(null);
+
+  const itemIds = useSelector((state: any) => state.cartReducer.itemIds);
+  const cartItemCount = itemIds.length;
 
   const handleButtonClick = () => {
     navigate('/');
@@ -102,6 +106,7 @@ function Header() {
           className="go-to-cart"
           onClick={ handleButtonNavigate }
         >
+          {cartItemCount > 0 && <span className="cart-count">{cartItemCount}</span>}
           <FiShoppingCart />
         </button>
       </div>
