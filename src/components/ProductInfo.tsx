@@ -58,8 +58,8 @@ function ProductInfo() {
     navigate('/cart');
   };
 
-  const handleBuyNowClick = (itemId) => {
-    handleAddToCart(itemId);
+  const handleBuyNowClick = (id: any) => {
+    handleAddToCart(id);
     handleButtonNavigate();
   };
 
