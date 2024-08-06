@@ -8,6 +8,7 @@ export const FixCategoryContainer = styled.section`
     align-items: center;
     background-color: #6C757D;
     overflow-y: auto;
+    height: 100vh;
 
     .categories {
       display: flex;
@@ -16,7 +17,7 @@ export const FixCategoryContainer = styled.section`
       align-items: flex-start;
       overflow-y: auto;
       width: 98%;
-      height: 610px;
+      height: 80%;
     }
     
     .category-button {
@@ -36,6 +37,17 @@ export const FixCategoryContainer = styled.section`
         font-size: 1rem;
         font-weight: bold;
         text-align: start;
+      }
+    }
+
+    @media screen and (max-width: 1000px) {
+      width: 100%;
+      height: 100vh;
+      .categories {
+        align-items: center;
+        width: 100%;
+        height: 75%;
+        overflow-y: auto;
       }
     }
 `;

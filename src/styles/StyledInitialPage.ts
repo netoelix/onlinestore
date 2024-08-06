@@ -42,4 +42,14 @@ export const StyledInitialPage = styled.section`
         }
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    .categories {
+      margin-top: 50px;
+      button {
+        width: 100%;
+        height: 200px;
+      }
+    }
+  }
 `;

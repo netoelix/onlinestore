@@ -139,4 +139,24 @@ export const StyledHeader = styled.header`
     width: 20%;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .header {
+    flex-direction: column;
+    .title {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .zip-code {
+      display: none;
+    }
+  }
+}
+
 `;

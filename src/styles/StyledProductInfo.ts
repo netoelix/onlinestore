@@ -155,4 +155,29 @@ export const StyledProductInfo = styled.div`
             background-color: #CED4DA;
         }
     }
+    @media screen and (max-width: 1000px) {
+        .pictures {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            width: 100%;
+            height: 200px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+
+        .products {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .product-details {
+            width: 100%;
+        }
+    }
 `;

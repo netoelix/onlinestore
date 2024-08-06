@@ -42,6 +42,9 @@ export const StyledFilterList = styled.div`
             }
         }
     }
+    @media screen and (max-width: 1000px) {
+        display: none;
+    }
 `;
 
 export const StyledItemList = styled.section`
@@ -107,5 +110,8 @@ export const StyledItemList = styled.section`
           background-color: #e0e0e0;
         }
       }
+    }
+    @media screen and (max-width: 1000px) {
+        margin-top: 60px;
     }
 `;

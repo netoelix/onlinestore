@@ -193,4 +193,25 @@ export const StyledCheckout = styled.div`
         flex-direction: row;
         width: 100%;
     }
+    @media screen and (max-width: 1000px) {
+        margin-top: 150px;
+        .search-results {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            width: 100%;
+        }
+        .personal-information {
+            flex-direction: column;
+        }
+        .paymant {
+            flex-direction: column;
+        }
+        .cart-container {
+            flex-direction: column;
+        }
+    }
+
 `;
